@@ -16,11 +16,6 @@ LIMIT 3";
 	$topmedicines = mysqli_fetch_all($tableresult, MYSQLI_ASSOC);
 	
 	
-	
-	
-	
-	
-	
 $recentsquery = "SELECT * FROM medicine_info 
 ORDER BY MedID DESC limit 3";
 
@@ -28,12 +23,6 @@ $recentsresult = mysqli_query($conn, $recentsquery);
 
 
 $recentmedicines = mysqli_fetch_all($recentsresult, MYSQLI_ASSOC);
-
-
-
-
-
-
 
 $division = "SELECT d.docid, d.docname, d.doctype
 FROM doctor d
@@ -65,11 +54,7 @@ $allbooked = mysqli_fetch_all($divisionresult, MYSQLI_ASSOC);
   
 </div>
 </div>
-			
-			
-			
-	
-			
+
 			<div class="bigbox1">
 			<h3 class="hometext"> Top Selling Medicines <i class="fas fa-star" id="starhome"></i></h3>
 			<div class="box1">
