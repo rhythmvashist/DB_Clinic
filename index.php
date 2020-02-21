@@ -2,18 +2,17 @@
 
 <?php 
  require('config_/config.php');
-    require('config_/db.php');
+ require('config_/db.php');
 	
 	 $tablequery = "SELECT medicine_info.MedID, name, cost, medImage, count(*) FROM medicine_info,orders 
-WHERE medicine_info.MedID=orders.MedID AND medicine_info.MedID IN (SELECT medID FROM orders
-GROUP BY medID 
-ORDER BY count(*)                             
-)
-GROUP BY orders.medId 
-LIMIT 3"; 
+	WHERE medicine_info.MedID=orders.MedID AND medicine_info.MedID IN (SELECT medID FROM orders
+	GROUP BY medID 
+	ORDER BY count(*)                             
+	)
+	GROUP BY orders.medId 
+	LIMIT 3"; 
     $tableresult = mysqli_query($conn, $tablequery);
-	
-	$topmedicines = mysqli_fetch_all($tableresult, MYSQLI_ASSOC);
+    $topmedicines = mysqli_fetch_all($tableresult, MYSQLI_ASSOC);
 	
 	
 $recentsquery = "SELECT * FROM medicine_info 
@@ -96,13 +95,6 @@ $allbooked = mysqli_fetch_all($divisionresult, MYSQLI_ASSOC);
 		<p> $<?php echo $recentmedicines[2]['Cost']?></p>
 		<img src="<?php echo $recentmedicines[2]['medImage']?>" height="200px" width="200px">
 		</div>
-	
-		
-		</div>
-		
-		
-		
-		
-		
-    </section>
+		</div>		
+  </section>
 <?php include('inc/footer.php'); ?>        
