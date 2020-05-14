@@ -39,15 +39,9 @@
             FROM docavailability doca, doctor doc 
             WHERE doca.Docid = doc.docid AND doca.Docid = '$currDoctor' "; 
   $result = mysqli_query($conn, $query);
-
   $fullSchedule = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
   mysqli_free_result($result);
-
   //print_r($fullSchedule);
-
-
-
 ?>
 
 <?php include('inc/header.php'); ?>        
