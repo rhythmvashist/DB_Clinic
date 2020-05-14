@@ -1,9 +1,7 @@
 <?php include('config_/userLogIN.php'); ?>
 
 <?php 
-    if(isset($userID)){
-
-    }
+    if(isset($userID)){}
     else{
         header('Location: login.php');        
     }
